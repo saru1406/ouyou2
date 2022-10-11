@@ -23,6 +23,22 @@
           <% end %>
         </tr>
       </table>
+      <table>
+      <tbody>
+      <% @book.comments.each do |comment| %>
+      <tr>
+      <td><%= comment.body %></td>
+      </tr>
+      <% end %>
+      
+      </table>
+       <%= form_with model: [@book,@comment] do |f| %>
+    <%= f.text_area :body, rows:'5',placeholder: "コメントをここに", class: "w-100 comment-textarea" %>
+  <%= f.submit "送信する", class: "btn btn-lg btn-base-1 mt-20 pull-right" %>
+<% end %>
+
     </div>
   </div>
-</div>
+  </div>
+
+
